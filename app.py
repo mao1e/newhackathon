@@ -31,11 +31,25 @@ def index():
 @app.route("/third")
 def index2():
     # coursename = 'ICS 7'
-    # courselist = db.execute ("SELECT * FROM thecourselist")
+    courselist = db.execute ("SELECT * FROM thecourselist")
     # # db.execute("CREATE TABLE IF NOT EXISTS mylist (rating FLOAT NOT NULL, professor TEXT NOT NULL, diffculty FLOAT NOT NULL, CRN INTEGER NOT NULL, course TEXT NOT NULL, section TEXT  NOT NULL, day TEXT NOT NULL, starttime INTEGER NOT NULL, endtime INTEGER NOT NULL, location TEXT NOT NULL)")
     # # db.execute("INSERT INTO mylist SELECT courselist.rating, courselist.professor, courselist.diffculty, thecourselist.CRN, thecourselist.course, thecourselist.section , thecourselist.day, thecourselist.starttime, thecourselist.endtime, thecourselist.location FROM thecourselist LEFT JOIN courselist ON thecourselist.professor = courselist.professor WHERE course = ?;", coursename)
     # alllist = db.execute("SELECT * FROM thecourselist WHERE course = ? AND professor = Nick Chivers", coursename)          
-    return render_template("third.html")
+    return render_template("third.html", courselist = courselist)
         
+@app.route("/fourth", methods=["GET", "POST"])
+def index3():
+    if request.method == "POST":
+        coursename = request.form.get("coursename")
+        courselist = db.execute ("SELECT * FROM thecourselist")
+        # db.execute("CREATE TABLE IF NOT EXISTS mylist (rating FLOAT NOT NULL, professor TEXT NOT NULL, diffculty FLOAT NOT NULL, CRN INTEGER NOT NULL, course TEXT NOT NULL, section TEXT  NOT NULL, day TEXT NOT NULL, starttime INTEGER NOT NULL, endtime INTEGER NOT NULL, location TEXT NOT NULL)")
+        # db.execute("INSERT INTO mylist SELECT courselist.rating, courselist.professor, courselist.diffculty, thecourselist.CRN, thecourselist.course, thecourselist.section , thecourselist.day, thecourselist.starttime, thecourselist.endtime, thecourselist.location FROM thecourselist LEFT JOIN courselist ON thecourselist.professor = courselist.professor WHERE course = ?;", coursename)
+        alllist = db.execute ("SELECT * FROM thecourselist WHERE course = ?", coursename)            
+        return render_template("index copy.html", courselist = courselist, alllist = alllist)
+    else:
+         # db.execute("CREATE TABLE courselist (rating FLOAT NOT NULL, professor TEXT NOT NULL, diffculty FLOAT NOT NULL)")
+        # db.execute(".import --csv --skip 1 AFAM_F2023_data.csv thecourselist")
+        courselist = db.execute ("SELECT * FROM thecourselist")            
+        return render_template("first.html", courselist = courselist)
 
 
