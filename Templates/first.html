@@ -63,14 +63,7 @@
     <tbody>
       <tr style="height: 4rem; border-right: 0.5px;">
         <th scope="row">Mon</th>
-        <td colspan="2" style="border-right: 0.5px;"></td>
-        <td colspan="2">
-          <form action="/third" method="GET">
-            <button type="submit" class="btn btn-primary" action="/third" method="GET" style="width: 85%;">ICS 7, Nick
-              <span class="badge text-bg-secondary ms-auto">4.3</span></button>
-          </form>
-        </td>
-        <td colspan="8"></td>
+        <td colspan="19" style="border-right: 0.5px;"></td>
       </tr>
       <tr style="height: 4rem;">
         <th scope="row">Tues</th>
@@ -82,12 +75,7 @@
       </tr>
       <tr style="height: 4rem;">
         <th scope="row">Thurs</th>
-        <td colspan="2" style="border-right: 0.5px;"></td>
-        <td colspan="2">
-          <button type="button" class="btn btn-primary" style="width: 85%;">ICS 7, Thalia
-            <span class="badge text-bg-secondary ms-auto">4.1</span></button>
-        </td>
-        <td colspan="8"></td>
+        <td colspan="19"></td>
       </tr>
       <tr style="height: 4rem;">
         <th scope="row">Fri</th>
@@ -97,25 +85,25 @@
   </table>
 
   <div>
-    <p class="ms-auto">Total Units: 5 units</p>
+    <p class="ms-auto">Total Units: 0 units</p>
     <table class="table mx-auto my-5" style="width: 75%;">
       <caption>Average Ratings</caption>
       <tbody>
         <tr>
           <th scope="row" style="width: 7rem;">RMP Score</th>
           <td>
-            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="95" aria-valuemin="0"
-              aria-valuemax="100">
-              <div class="progress-bar bg-success" style="width: 0%">4.8</div>
+            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="0">
+              <div class="progress-bar bg-success" style="width: 0%">0</div>
             </div>
           </td>
         </tr>
         <tr>
           <th scope="row">Difficulty</th>
           <td>
-            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="25" aria-valuemin="0"
-              aria-valuemax="100">
-              <div class="progress-bar bg-success" style="width: 0%">2</div>
+            <div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="0" aria-valuemin="0"
+              aria-valuemax="0">
+              <div class="progress-bar bg-success" style="width: 0%">0</div>
             </div>
           </td>
         </tr>
@@ -159,6 +147,12 @@
       <h6 class="card-subtitle mb-2 text-body-secondary" id="professor">{{ courses.professor }}</h6>
       <p class="card-text">{{courses.location}}</p>
       <p class="card-text">{{courses.day}}, {{courses.starttime}}-{{courses.endtime}}</p>
+      <a class="icon-link icon-link-hover" style="--bs-icon-link-transform: translate3d(0, -.125rem, 0);" href="#">
+        <svg class="bi" aria-hidden="true">
+          <use xlink:href="#clipboard"></use>
+        </svg>
+        Icon link
+      </a>
     </div>
   </div>
   {% endfor %}
